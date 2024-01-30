@@ -1,1 +1,1 @@
-# credit-system-application
+# credit-application-system

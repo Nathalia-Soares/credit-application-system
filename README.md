@@ -5,7 +5,7 @@ The project used the following tools:
 * Kotlin language (version 1.9.22)
 * IDE Intellij Idea 2023.3.2 (Ultimate Edition),
 * Gradle (Depedencies' Manager),
-* SpringBoot (Spring Data JPA, Spring Web, Spring Validation, Flyway, H2database, DevTools and Spring Test)
+* SpringBoot 3.0.4 (Spring Data JPA, Spring Web, Spring Validation, Flyway, H2database, DevTools and Spring Test)
 
 ## About the project
 

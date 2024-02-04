@@ -1,5 +1,6 @@
 package me.dio.creditrequestsystem.service
 
+import me.dio.creditrequestsystem.exception.BusinessException
 import me.dio.creditrequestsystem.model.Credit
 import me.dio.creditrequestsystem.repository.CreditRepository
 import me.dio.creditrequestsystem.service.interfaces.InterfaceCreditService
@@ -24,7 +25,7 @@ class CreditService(
     }
 
     override fun findByCreditCode(customerId: Long, creditCode: UUID): Credit {
-        val credit: Credit = (this.creditRepository.findByCreditCode(creditCode) ?: throw RuntimeException("Credit Code $creditCode not found"))
-        return if(credit.customer?.id == customerId) credit else throw RuntimeException("Contact admin")
+        val credit: Credit = (this.creditRepository.findByCreditCode(creditCode) ?: throw BusinessException("Credit Code $creditCode not found"))
+        return if(credit.customer?.id == customerId) credit else throw IllegalArgumentException("Contact admin")
     }
 }

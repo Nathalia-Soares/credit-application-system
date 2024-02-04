@@ -1,5 +1,6 @@
 package me.dio.creditrequestsystem.service
 
+import me.dio.creditrequestsystem.exception.BusinessException
 import me.dio.creditrequestsystem.model.Customer
 import me.dio.creditrequestsystem.repository.CustomerRepository
 import me.dio.creditrequestsystem.service.interfaces.InterfaceCustomerService
@@ -15,11 +16,12 @@ class CustomerService(private val customerRepository: CustomerRepository
 
     override fun findById(id: Long): Customer {
         return this.customerRepository.findById(id).orElseThrow {
-            throw RuntimeException("Id $id not found")
+            throw BusinessException("Id $id not found")
         }
     }
 
     override fun delete(id: Long) {
-        this.customerRepository.deleteById(id)
+        val customer : Customer = this.findById(id)
+        this.customerRepository.delete(customer)
     }
 }

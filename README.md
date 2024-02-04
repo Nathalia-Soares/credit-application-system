@@ -27,4 +27,3 @@ This project is distributed under MIT License. Consult the LICENSE file about mo
 
 ## Contact
 If you have any question, suggestions or/and need support, contact us on nathaliasoaresoliver@gmail.com
-

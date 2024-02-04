@@ -17,7 +17,7 @@ data class Credit(
     val dayFirstInstallment: LocalDate,
     @Column(nullable = false)
     val numberOfInstallments: Int = 0,
-    @Column(nullable = false)
+    @Enumerated(value = EnumType.STRING)
     val status: Status = Status.IN_PROGRESS,
     @ManyToOne
     val customer: Customer? = null,

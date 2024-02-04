@@ -29,7 +29,7 @@ class CustomerController(
             .body(CustomerView(customer))
     }
 
-    @PatchMapping
+    @PutMapping
     fun updateCustomer(
         @RequestParam(value = "customerId") id: Long,
         @RequestBody customerUpdateDto: CustomerUpdateDto

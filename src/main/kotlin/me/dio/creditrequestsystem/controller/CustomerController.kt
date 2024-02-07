@@ -17,10 +17,10 @@ class CustomerController(
 ) {
 
     @PostMapping
-    fun saveCustomer(@RequestBody @Valid customerDto: CustomerDto): ResponseEntity<String> {
+    fun saveCustomer(@RequestBody @Valid customerDto: CustomerDto): ResponseEntity<CustomerView> {
         val savedCustomer = this.customerService.save(customerDto.toEntity())
         return ResponseEntity.status(HttpStatus.CREATED)
-            .body("Customer ${savedCustomer.firstName} saved!")
+            .body(CustomerView(savedCustomer))
     }
 
     @GetMapping("/{id}")
@@ -30,7 +30,7 @@ class CustomerController(
             .body(CustomerView(customer))
     }
 
-    @PutMapping
+    @PatchMapping
     fun updateCustomer(
         @RequestParam(value = "customerId") id: Long,
         @RequestBody @Valid customerUpdateDto: CustomerUpdateDto
